@@ -1,6 +1,7 @@
 const {Router} = require("express");
 const {getGames} = require ("../Controllers/getGames");
 const {postGames} = require ('../Controllers/postGames');
+const {getGamesID} = require ('../Controllers/getGamesID')
 
 const videogamesRouter = Router ();
 
@@ -9,6 +10,16 @@ videogamesRouter.get('/', async (req, res)=>{
         const allGames= await getGames();
         res.status(200).json(allGames)
     } catch (error){
+        res.status(500).json({error: error.message})
+    }
+})
+
+videogamesRouter.get('/:id', async (req, res)=>{
+    const {id} = req.params;
+    try {
+        const gamesID = await getGamesID(id);
+        res.status(200).json(gamesID)
+    } catch (error) {
         res.status(500).json({error: error.message})
     }
 })
