@@ -1,13 +1,30 @@
 const {Router} = require("express");
 const {getGames} = require ("../Controllers/getGames");
 const {postGames} = require ('../Controllers/postGames');
-const {getGamesID} = require ('../Controllers/getGamesID')
+const {getGamesID} = require ('../Controllers/getGamesID');
+const { getName } = require("../Controllers/getName");
 
 const videogamesRouter = Router ();
 
 videogamesRouter.get('/', async (req, res)=>{
     try {
         const allGames= await getGames();
+        res.status(200).json(allGames)
+    } catch (error){
+        res.status(500).json({error: error.message})
+    }
+})
+videogamesRouter.get('/', async (req, res)=>{
+    const {name} = req.query;
+    try {
+        if(name){
+            const games = await getName(name);
+            res.status(200).json(games)
+        }else {
+            const getName= await getName(name);
+        const allGames= await getGames();
+        }
+        
         res.status(200).json(allGames)
     } catch (error){
         res.status(500).json({error: error.message})
