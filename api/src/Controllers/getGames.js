@@ -8,9 +8,17 @@ const getGames = async ()=>{
     const games = apiGames.data.results;
     const dbGames = await Videogame.findAll();
 
-    const allGames = games.concat(dbGames);
+    const gameDB = dbGames.map((game)=>{return {
+        id: game.id,
+        name: game.name,
+        genres: game.genres?.map((gen)=> gen.name),
+        platforms: game.platforms?.map((platform)=> platform),
+        released: game.released,
+        image: game.image,
+        rating: game.rating,
+    }})
 
-    const gameApi = allGames.map((game)=>{
+    const gameApi = games.map((game)=>{
         return {
             id: game.id,
             name: game.name,
@@ -23,9 +31,10 @@ const getGames = async ()=>{
     })
 
     //console.log(gameApi)
+    const allGames = gameApi.concat(gameDB)
 
     if (allGames){
-        return gameApi;
+        return allGames;
     } else {
         throw Error('Juego no encontrado')
     }
