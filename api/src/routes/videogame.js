@@ -1,5 +1,5 @@
 const {Router} = require("express");
-const {getGames} = requiere ("../Controllers/getGames");
+const {getGames} = require ("../Controllers/getGames");
 
 const videogamesRouter = Router ();
 videogamesRouter.get('/', async (req, res)=>{
@@ -10,3 +10,4 @@ videogamesRouter.get('/', async (req, res)=>{
         res.status(500).json({error: error.message})
     }
 })
+module.exports = videogamesRouter;
