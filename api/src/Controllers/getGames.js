@@ -14,7 +14,11 @@ const getGames = async ()=>{
         return {
             id: game.id,
             name: game.name,
-            genres: game.genre//ACA TODO LO QUE FALTA EN LA CAPTURA DEL CELU
+            genres: game.genres?.map((gen)=> gen.name),
+            platforms: game.platforms?.map((plat)=> plat.platform.name),
+            released: game.released,
+            image: game.image,
+            rating: game.rating,
         }
     })
 
