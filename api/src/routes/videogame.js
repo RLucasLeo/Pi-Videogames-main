@@ -5,7 +5,7 @@ const {getGamesID} = require ('../Controllers/getGamesID');
 const { getName } = require("../Controllers/getName");
 
 const videogamesRouter = Router ();
-
+//GET DE TODOS LOS JUEGOS
 videogamesRouter.get('/', async (req, res)=>{
     try {
         const allGames= await getGames();
@@ -14,23 +14,27 @@ videogamesRouter.get('/', async (req, res)=>{
         res.status(500).json({error: error.message})
     }
 })
+//GET DE JUEGOS POR NOMBRE
 videogamesRouter.get('/', async (req, res)=>{
     const {name} = req.query;
-    try {
+    try { let gamesName= null;
         if(name){
-            const games = await getName(name);
-            res.status(200).json(games)
-        }else {
-            const getName= await getName(name);
-        const allGames= await getGames();
+            gamesName = await getName(name);
+             if(gamesName=== null){
+                res.status(404).json({message: "NO SE ENCONTRO CON ESE NAME"});
+                return;
+            }
+            res.status(200).json(gamesName);
+            return;
         }
-        
-        res.status(200).json(allGames)
+        // si no hay nombre en el pedido debe traer todos
+        const allGames= await getGames();
+        res.status(200).json(allGames);
     } catch (error){
         res.status(500).json({error: error.message})
     }
 })
-
+//GET POR ID
 videogamesRouter.get('/:id', async (req, res)=>{
     const {id} = req.params;
     try {
