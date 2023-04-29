@@ -5,12 +5,13 @@ import React from "react";
 const LandingPage =()=> {
 
     return (
-          <div className={styles.containerCentral}>
-              <div className={styles.containerSubtitulo}>
-                  <h3>Bienvenido a mi pagina!!</h3>
-              </div>
-            <Link to="/home"><button >Ingresar!</button></Link>
-          </div>
+         <div className={styles.containerCentral}>
+              
+            <h3 className={styles.titulo}>Bienvenido a mi proyecto!</h3>
+              
+            <Link to="/home"><button className={styles.boton} >Ingresar!</button></Link>
+            <p className={styles.text}>Desarrollado por Robledo Lucas Leonardo, con mucho amor&#x1F49B;</p>
+         </div>
     )
   }
   export default LandingPage;
