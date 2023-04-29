@@ -1,10 +1,12 @@
+import landingPage from "./Components/landingPage/landing"
+import { Route, Routes } from "react-router-dom";
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Henry Videogames</h1>
-    </div>
+    <Routes>
+        <Route path='/' element={<landingPage/>}/>
+    </Routes>
   );
 }
 
