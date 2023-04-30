@@ -7,9 +7,9 @@ const LandingPage =()=> {
     return (
          <div className={styles.containerCentral}>
               
-            <h3 className={styles.titulo}>Bienvenido a mi proyecto!</h3>
+            <h3 className={styles.titulo}>¡Bienvenido a mi proyecto!</h3>
               
-            <Link to="/home"><button className={styles.boton} >Ingresar!</button></Link>
+            <Link to="/home"><button className={styles.boton} >INGRESAR</button></Link>
             <p className={styles.text}>Desarrollado por Robledo Lucas Leonardo, con mucho amor&#x1F49B;</p>
          </div>
     )
