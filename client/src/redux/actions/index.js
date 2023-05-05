@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const GET_ALL_VIDEOGAMES = "GET_ALL_VIDEOGAMES";
-export const GET_NAME= "GET_NAME";
+export const GET_NAMES= "GET_NAMES";
 export const GET_VIDEOGAME = "GET_VIDEOGAME";
 export const GET_BY_GENRES = "GET_BY_GENRES";
 export const CREATE_VIDEOGAME = "CREATE_VIDEOGAME";
@@ -25,12 +25,12 @@ export const getAllvideogames = () =>{
     }
     }
 
-export const getName=(name)=>{
+export const getNames=(name)=>{
     return async (dispatch)=>{
         try {
             const {data} = await axios.get(`http://localhost:3001/videogames?name=${name}`);
             return dispatch({
-                type: "GET_NAME",
+                type: "GET_NAMES",
                 payload: data,
             })
         } catch (error) {
