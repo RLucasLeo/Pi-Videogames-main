@@ -57,7 +57,7 @@ export const getVideogame = (id) =>{
 export const getByGenres=()=>{
     return async (dispatch)=>{
         try {
-            const {data} = await axios.get('http://localhost:3001/genres'):
+            const {data} = await axios.get('http://localhost:3001/genres');
             return dispatch({
                 type: "GET_bY_GEMRES",
                 payload: data,
