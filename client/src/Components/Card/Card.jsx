@@ -1,15 +1,21 @@
-import styles from "./Card.module.css"
-const Card =() =>{
-   return(
-      <div className={styles.card}>
-          <p>hola soyCARD</p>
-    <p>soy el nombre dentro de la Card</p>
-    <p>soy el rating dentro de la CARD</p>
-    <p>soy el genres dentro de la CARD</p>
-    <p>soy el platform dentro de la CARD</p>
-      </div>
-   
-   )
-}
+import s from "./Card.module.css"
+import React from "react"
+import {Link} from "react-router-dom"
 
+class Card extends React.Component {
+
+   render() {
+       return (
+           <div className={s.card}>
+               
+                   <h3 className={s.nombre}>{this.props.name}</h3>
+                   <p className={s.genres}>{this.props.genres}</p>
+                   <p className={s.rating}>⭐ {this.props.rating}</p>
+                <Link to={`/detail/${this.props.id}`} className={s.navLink}><span className={s.leer_mas}>Leer más</span></Link>
+            
+           </div>
+       )
+   }
+
+}
 export default Card;

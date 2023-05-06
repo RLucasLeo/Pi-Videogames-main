@@ -14,7 +14,7 @@ export const GET_PLATFORMS = 'GET_PLATFORMS'
 export const getAllvideogames = () =>{
     return async (dispatch)=>{
         try {
-            const {data}= await axios.get("htpp://localhost:3001/videogames");
+            const {data}= await axios.get("http://localhost:3001/videogames");
             return dispatch({
                 type: "GET_ALL_VIDEOGAMES",
                 payload: data,
