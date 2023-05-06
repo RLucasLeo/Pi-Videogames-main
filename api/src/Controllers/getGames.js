@@ -11,10 +11,10 @@ const getGames = async ()=>{
     const gameDB = dbGames.map((game)=>{return {
         id: game.id,
         name: game.name,
+        image: game.background_image,
         genres: game.genres?.map((gen)=> gen.name),
         platforms: game.platforms?.map((platform)=> platform),
         released: game.released,
-        image: game.image,
         rating: game.rating,
     }})
 
@@ -22,10 +22,10 @@ const getGames = async ()=>{
         return {
             id: game.id,
             name: game.name,
+            image: game.background_image,
             genres: game.genres?.map((gen)=> gen.name),
             platforms: game.platforms?.map((plat)=> plat.platform.name),
             released: game.released,
-            image: game.image,
             rating: game.rating,
         }
     })
