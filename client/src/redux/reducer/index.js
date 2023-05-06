@@ -25,34 +25,33 @@ function rootReducer(state=initialState, action){
                     allVideogames: action.payload,
                     videogames: action.payload
                 }
-                break;
+                
             
             case GET_NAMES: //este se usa en el serachbar
                 return{
                     ...state,
                     allVideogames: action.payload
                 }
-                break;
+                
 
             case GET_VIDEOGAME: //este es para la ruta detail
                 return{
                     ...state,
                     videogame: action.payload,
                 } 
-                break;
+                
             
                 case GET_BY_GENRES:
                     return{
                         ...state,
                         genres: action.payload,
                     }
-                break;
-
+                
             case CREATE_VIDEOGAME:
                     return{
                         ...state
                     }
-                    break;
+                    
 
             case ORDER_BY:
                 let copia = [...state.allVideogames]; //copia del estado 
@@ -62,14 +61,14 @@ function rootReducer(state=initialState, action){
                         ordenamiento = [...state.allVideogames];
                         break;
                     case "A-Z":
-                        ordenamiento = vopia.sort(function(a, b){
+                        ordenamiento = copia.sort(function(a, b){
                             if (a.name.toloweCase()>b.name.toloweCase()){return 1}
                             if (a.name.toloweCase()<b.name.toloweCase()){return -1}
                             return 0;
                         })
                         break;
                     case "Z-A":
-                        ordenamiento = vopia.sort(function(a, b){
+                        ordenamiento = copia.sort(function(a, b){
                             if (a.name.toloweCase()<b.name.toloweCase()){return 1}
                             if (a.name.toloweCase()>b.name.toloweCase()){return -1}
                             return 0;
@@ -95,12 +94,12 @@ function rootReducer(state=initialState, action){
                     allVideogames: ordenamiento,
                     videogame: ordenamiento,
                 }
-            break;
+            
 
              case  FILTER_BY_GENRES:
                 let auxi=[];
                 if(action.payload){
-                    aux = state.videogames.filter(e=>{
+                    auxi = state.videogames.filter(e=>{
                         if(e.genres.length === 0){
                             return e.genres;
                         }
@@ -113,13 +112,13 @@ function rootReducer(state=initialState, action){
                     })
                 }
                 else{
-                    aux=state.videogames
+                    auxi=state.videogames
                 }
                 return {
                     ...state,
-                    allVideogames: aux,
+                    allVideogames: auxi,
                 }
-            break;  
+             
 
                 case FILTER_BY_SOURCE:
                 let getV= state.videogames;
@@ -140,7 +139,7 @@ function rootReducer(state=initialState, action){
                     ...state, 
                     allVideogames: filtrados,
                 }
-            break;  
+             
             
              case GET_PLATFORMS:
                 return{
@@ -151,7 +150,7 @@ function rootReducer(state=initialState, action){
                 return{
                     ...state,
                 }
-                break;
+                
         }
     }
 
