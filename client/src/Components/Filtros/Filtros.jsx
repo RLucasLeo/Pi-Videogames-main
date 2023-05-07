@@ -9,7 +9,7 @@ const Filtros = ({handleFilter, handleSort, handleSource}) => {
 
     const dispatch = useDispatch();
     const generos = useSelector(state => state.genres)// el useSelector lee un valor del estado del store(reducer) y se suscribe a las actualizaciones del mismo.
-
+    //console.log(generos.genres)
     useEffect(() => { //
         dispatch(getByGenres())
     }, [dispatch])
@@ -26,12 +26,10 @@ const Filtros = ({handleFilter, handleSort, handleSource}) => {
                     </select>
 
                     <select id="genre" onChange={e => handleFilter(e)}>
-                        <option value=''>Generos</option>
-                        {generos && generos.length>0? generos.map(g => {
-                            return (
-                                <option key={g.id} value={g.name}>{g.name}</option>
-                            )
-                        }): "error papu"}
+                         <option value=''>Generos</option>
+                        {generos.genres && generos.genres.length > 0 ? generos.genres.map(g => (
+                            <option key={g.id} value={g.name}>{g.name}</option> 
+                        )) : <option>Error cargar géneros</option>}
                     </select>
 
                     <select onChange={e => handleSource(e)}>

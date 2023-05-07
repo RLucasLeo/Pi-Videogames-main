@@ -99,7 +99,7 @@ function rootReducer(state=initialState, action){
              case  FILTER_BY_GENRES:
                 let auxi=[];
                 if(action.payload){
-                    auxi = state.videogames.filter(e=>{
+                    auxi = state.genres.filter(e=>{
                         if(e.genres.length === 0){
                             return e.genres;
                         }
