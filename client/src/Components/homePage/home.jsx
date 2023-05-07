@@ -45,7 +45,7 @@ const HomePage =() =>{
 }
 
    function handleSource(e){
-      e.preventDefaul()
+      e.preventDefault()
       if(e.target.value===""){
          dispatch(getAllvideogames())
       }else{
