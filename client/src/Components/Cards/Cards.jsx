@@ -16,7 +16,7 @@ const Cards = ({currentGames}) => {
    //const allVideogames = useSelector(state => state.allVideogames) //me traigo del reducer el estado en donde guarde todos mis videojuegos
    if(carga){
       return(
-         <p>error carga</p>
+         <img className={s.carga}src="https://icon-library.com/images/loading-icon-animated-gif/loading-icon-animated-gif-7.jpg" alt="CARGANDO" />
       )
    }
 
