@@ -4,7 +4,6 @@
 .card{
     display: flex;
     flex-direction: column;
-    cursor: pointer;
     transform:  translateZ(0);
     transition: transform 0.25s ease-out;
     margin: auto;
