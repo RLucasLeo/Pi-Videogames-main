@@ -27,11 +27,11 @@ const Filtros = ({handleFilter, handleSort, handleSource}) => {
 
                     <select id="genre" onChange={e => handleFilter(e)}>
                         <option value=''>Generos</option>
-                        {generos && generos.map(g => {
+                        {generos && generos.length>0? generos.map(g => {
                             return (
                                 <option key={g.id} value={g.name}>{g.name}</option>
                             )
-                        })}
+                        }): "error papu"}
                     </select>
 
                     <select onChange={e => handleSource(e)}>

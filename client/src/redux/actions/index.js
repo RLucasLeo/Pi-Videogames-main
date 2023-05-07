@@ -59,7 +59,7 @@ export const getByGenres=()=>{
         try {
             const {data} = await axios.get('http://localhost:3001/genres');
             return dispatch({
-                type: "GET_bY_GEMRES",
+                type: "GET_BY_GENRES",
                 payload: data,
             })
         } catch (error) {

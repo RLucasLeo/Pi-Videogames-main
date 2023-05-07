@@ -62,15 +62,15 @@ function rootReducer(state=initialState, action){
                         break;
                     case "A-Z":
                         ordenamiento = copia.sort(function(a, b){
-                            if (a.name.toloweCase()>b.name.toloweCase()){return 1}
-                            if (a.name.toloweCase()<b.name.toloweCase()){return -1}
+                            if (a.name.toLowerCase()>b.name.toLowerCase()){return 1}
+                            if (a.name.toLowerCase()<b.name.toLowerCase()){return -1}
                             return 0;
                         })
                         break;
                     case "Z-A":
                         ordenamiento = copia.sort(function(a, b){
-                            if (a.name.toloweCase()<b.name.toloweCase()){return 1}
-                            if (a.name.toloweCase()>b.name.toloweCase()){return -1}
+                            if (a.name.toLowerCase()<b.name.toLowerCase()){return 1}
+                            if (a.name.toLowerCase()>b.name.toLowerCase()){return -1}
                             return 0;
                         })
                         break;
@@ -81,7 +81,7 @@ function rootReducer(state=initialState, action){
                         break;
                     case "Rating Des":
                         ordenamiento= copia.sort(function(a, b){
-                            return b.rating - a.rating
+                            return b.rating?.rating - a.rating?.rating
                         })
                         break;
 
