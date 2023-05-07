@@ -13,10 +13,10 @@ const getGamesID = async(id)=>{
         return {
         id: game.id,
         name: game.name,
+        image: game.background_image,
         genres: game.genres?.map((gen)=> gen.name),
         platforms: game.platforms?.map((plat)=> plat.platform.name),
         released: game.released,
-        image: game.image,
         rating: game.rating,
         };
     })
