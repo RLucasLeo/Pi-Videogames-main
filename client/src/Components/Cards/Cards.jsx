@@ -14,6 +14,7 @@ const Cards = ({currentGames}) => {
    }, [dispatch])
 
    //const allVideogames = useSelector(state => state.allVideogames) //me traigo del reducer el estado en donde guarde todos mis videojuegos
+   const errorCarga = <h4 className={s.errorCarga}>⚠No se econtró juego con esas caracteristicas</h4>
    if(carga){
       return(
          <img className={s.carga}src="https://icon-library.com/images/loading-icon-animated-gif/loading-icon-animated-gif-7.jpg" alt="CARGANDO" />
@@ -31,7 +32,7 @@ const Cards = ({currentGames}) => {
                    name={v.name}
                    genres={v.genres?.map(e => typeof (e) === 'object' ? e.name : e).join(', ')}
                    rating={v.rating}
-                   />)}) : "AQUI IMAGEN DE Q NO SE RENDERIZÓ LAS CARDS"}
+                   />)}) : errorCarga}
 
        </div>
    )
