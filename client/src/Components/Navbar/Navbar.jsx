@@ -36,7 +36,7 @@ const Navbar =() =>{
          onChange={e=> handleChange(e)} className={styles.searchbar}/>
         <button type="submit" className={styles.Button}>Buscar</button>
       </form> <div> <br />
-      <span ><Link to={'/create'} className={styles.Button2}>Create Videogame</Link></span></div>
+      <span ><Link to={'/create'} className={styles.Button2}> Crear Juego !</Link></span></div>
     </div>
     
    )

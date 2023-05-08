@@ -41,7 +41,7 @@ color:rgb(15, 7, 17);
 }
 
 .Button2{
-	padding: 3px;
+	padding: 3px 5px;
 	box-shadow: 0px 0px 0px 2px #9fb4f2;
 	background-color:#ff6f2c;
 	border-radius:3px;
