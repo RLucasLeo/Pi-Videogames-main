@@ -14,7 +14,7 @@ const Cards = ({currentGames}) => {
    }, [dispatch])
 
    //const allVideogames = useSelector(state => state.allVideogames) //me traigo del reducer el estado en donde guarde todos mis videojuegos
-   const errorCarga = <h4 className={s.errorCarga}>⚠No se econtró juego con esas caracteristicas</h4>
+   const errorCarga = <h4 className={s.errorCarga}>⚠No se econtró ningun juego</h4>
    if(carga){
       return(
          <img className={s.carga}src="https://icon-library.com/images/loading-icon-animated-gif/loading-icon-animated-gif-7.jpg" alt="CARGANDO" />
