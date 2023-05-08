@@ -2,6 +2,7 @@ import styles from "./Navbar.module.css"
 import React, {useState} from "react";
 import {useDispatch} from "react-redux"
 import {getNames} from "../../redux/actions";
+import { Link } from "react-router-dom";
 
 
 const Navbar =() =>{
@@ -24,9 +25,8 @@ const Navbar =() =>{
     }
   }
 
-
    return(
-    <div className={styles.navbar}>
+    <div className={styles.navbar}>  
       <form onSubmit={e=> handleSubmit(e)}>
         <input type="text"
         id="name"
@@ -35,7 +35,8 @@ const Navbar =() =>{
          placeholder="Buscar juego"
          onChange={e=> handleChange(e)} className={styles.searchbar}/>
         <button type="submit" className={styles.Button}>Buscar</button>
-      </form>
+      </form> <div> <br />
+      <span ><Link to={'/create'} className={styles.Button2}>Create Videogame</Link></span></div>
     </div>
     
    )
