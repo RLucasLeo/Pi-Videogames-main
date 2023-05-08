@@ -5,7 +5,8 @@ import Create from "./Components/Create/Create"
 import Error404 from "./Components/Error404/Error404"
 import { Route, Routes } from "react-router-dom";
 import './App.css';
-
+import axios from "axios"
+axios.defaults.baseURL= 'http://localhost:3001'
 function App() {
   return (
     <div className="App">
