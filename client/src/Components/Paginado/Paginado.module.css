@@ -5,11 +5,13 @@
   }
 
 .paginacion button {
-  color: black;
+  color: white;
+  background-color: rgb(231, 41, 89);
   float: left;
   padding: 8px 16px;
   border: 1px solid #370617;
-  margin: 0 4px
+  margin: 0 4px;
+  box-shadow: 0px 0px 30px 10px rgba(255, 252, 46, 0.39);
 }
 
 .paginacion button:focus {
