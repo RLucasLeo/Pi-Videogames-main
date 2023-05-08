@@ -12,8 +12,8 @@ body {
   }
 
   .box select {
-    background-color: #FFCDB2;
-    color: black;
+    background-color: #fc43e3;
+    color: white;
     padding: 7px;
     font-size: 16px;
     appearance: button;
