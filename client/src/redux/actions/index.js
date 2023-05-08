@@ -81,15 +81,6 @@ export const createVideogame = (videogame)=>{
         }
     }
 }
-export const getPlatforms=()=>{
-    return async (dispatch)=>{
-        const url = await axios.get('http://localhost:3001/videogames/platforms'); console.log(url)
-        return dispatch({
-            tpye: "GET_PLATFORMS",
-            payload: url.data
-        })
-    }
-}
 
 export const orderBy = (payload) =>{
     return {
