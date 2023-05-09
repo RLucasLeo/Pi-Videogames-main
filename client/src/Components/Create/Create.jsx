@@ -1,7 +1,7 @@
 import s from "./Create.module.css"
 import React,{ useEffect, useState } from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {createVideogame, getByGenres} from "../../redux/actions/index"
+import {createVideogame, getByGenres, getPlatforms} from "../../redux/actions/index"
 import {NavLink, useNavigate} from "react-router-dom";
 
 function validaciones(input) {
@@ -51,10 +51,12 @@ const navigate= useNavigate();
 const generos = useSelector((state)=>state.genres);
 //console.log(generos)
 const allNames = useSelector((state)=> state.allVideogames);
+const allPlatforms = useSelector((state) => state.platforms);
+
 
 useEffect(()=>{
    dispatch(getByGenres());
-
+   dispatch(getPlatforms());
 }, [dispatch])
 
 function handleSubmit(e) {
@@ -109,6 +111,25 @@ function handleDeleteG(e){
    })
 
 }
+const handlePlatform = (event) => {
+     
+    if(event.target.value === "all"){
+     return 
+    }
+     setInput({
+       ...input,
+       platforms: [...new Set([...input.platforms, event.target.value ])],
+     });
+   
+   
+ };
+
+ const handleDeletePlatform = (event) => {
+    setInput({
+      ...input,
+      platforms: input.platforms.filter((p) => p !== event),
+    });
+  };
 
 return(
    <div>
@@ -200,24 +221,33 @@ return(
 
 
           <div className={s.grupo}>
-              <select className={s.select_create} id="platforms" defaultValue="" >
-                  <option className={s.option_create} value="" disabled hidden>Elija las plataformas...</option>
-                  
-                    return (
-                      <option className={s.option_create}>Playstation 5</option>
-                      <option className={s.option_create}>Xbox Series S/X</option>
-                      <option className={s.option_create}>Switch</option>
-                      <option className={s.option_create}>Android</option>
-                      <option className={s.option_create}>Ios</option>
-                      );
-                    
-              </select> <span className={s.barra}></span>
-              <label className={s.label}>Plataformas:  </label>
-              {input.platforms.map((p) => (
-                <div className={s.box_opcion}>
-                  <div className={s.opcion_title}>{p}</div>
-                </div>
-              ))}
+          <label className={s.label}>Plataformas: </label>
+          <select className={s.select_create} onChange={(event) => handlePlatform(event)}>
+            <option value="all">Elija las plataformas...</option>
+            {allPlatforms?.map((p) => {
+              return (
+                <option key={p} value={p}>
+                  {p}
+                </option>
+              );
+            })}
+          </select>
+          </div>
+          <div>
+          
+          {input.platforms.map((p) => (
+            <div key={p} className={s.box_opcion}>
+              <p>{p}</p>
+              <button className={s.btn_remove}
+                onClick={() => handleDeletePlatform(p)}
+                key={p.id}
+                id={p.id}
+                value={p.name}
+              >
+                <span className={s.x}>X</span>
+              </button>
+            </div>
+          ))}
           </div>
 
           <div className={s.grupo}>
