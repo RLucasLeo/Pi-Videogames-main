@@ -81,7 +81,7 @@ function rootReducer(state=initialState, action){
                         break;
                     case "Rating Des":
                         ordenamiento= copia.sort(function(a, b){
-                            return b.rating?.rating - a.rating?.rating
+                            return b.rating - a.rating
                         })
                         break;
 
@@ -144,7 +144,7 @@ function rootReducer(state=initialState, action){
              case GET_PLATFORMS:
                 return{
                     ...state,
-                    platforms: [...action.payload]
+                    platforms: action.payload
                 }
              default:
                 return{

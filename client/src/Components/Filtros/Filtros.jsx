@@ -21,8 +21,8 @@ const Filtros = ({handleFilter, handleSort, handleSource}) => {
                         <option value="" >Ordenar por...</option>
                         <option value="A-Z" >A-Z</option>
                         <option value="Z-A" >Z-A</option>
-                        <option value="RatingAsc">Rating Asc</option>
-                        <option value="RatingDesc">Rating Desc</option>
+                        <option value="Rating Asc">Rating Asc</option>
+                        <option value="Rating Des">Rating Desc</option>
                     </select>
 
                     <select id="genre" onChange={e => handleFilter(e)}>
@@ -34,8 +34,8 @@ const Filtros = ({handleFilter, handleSort, handleSource}) => {
 
                     <select onChange={e => handleSource(e)}>
                         <option value=''>Filtrar por Origen</option>
-                        <option value="api">API</option>
-                        <option value="created">Creados</option>
+                        <option value="API">API</option>
+                        <option value="CREADO">Creados</option>
                     </select>
                     
             </div>
