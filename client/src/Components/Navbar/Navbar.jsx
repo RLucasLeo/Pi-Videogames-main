@@ -5,36 +5,31 @@ import {getNames} from "../../redux/actions";
 import { Link } from "react-router-dom";
 
 
-const Navbar =() =>{
+const Navbar =({setCurrentPage}) =>{
 
   const [state, setState]=useState('');
   const dispatch= useDispatch();
 
-  function handleChange(e){
+  const handleChange=(e)=>{
     e.preventDefault()
     setState(e.target.value)
   }
 
-  function handleSubmit(e){
+  const handleSubmit=(e, setCurrentPage)=>{
     e.preventDefault();
-    if(state.length>1){
       dispatch(getNames(state))
-      setState('')
-    }else{
-      alert('Ingrese un nombre para buscar')
-    }
+      setState('');
+      setCurrentPage(1);
+    
   }
 
    return(
+    
     <div className={styles.navbar}>  
-      <form onSubmit={e=> handleSubmit(e)}>
-        <input type="text"
-        id="name"
-        autoComplete="off"
-        value={state}
-         placeholder="Buscar juego"
-         onChange={e=> handleChange(e)} className={styles.searchbar}/>
-        <button type="submit" className={styles.Button}>Buscar</button>
+      <form>
+        <input className={styles.searchbar} value={state} type="text"
+        onChange={(e)=>handleChange(e)} placeholder="Buscar por nombre"/>
+        <button type="submit" className={styles.Button} onClick={(e)=>handleSubmit(e, setCurrentPage)}>Buscar</button>
       </form> <div> <br />
       <span ><Link to={'/create'} className={styles.Button2}> Crear Juego !</Link></span></div>
     </div>
