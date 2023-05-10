@@ -11,7 +11,7 @@ const HomePage =() =>{
    const allGames = useSelector(state=>state.allVideogames)
 
    const[currentPage, setCurrentPage]= useState(1)
-   const juegosPorPag=14;
+   const juegosPorPag=15;
    const indexUltiJuego= currentPage * juegosPorPag;
    const indexPrimJuego= indexUltiJuego - juegosPorPag;
    const currentGames= allGames.slice(indexPrimJuego, indexUltiJuego)
